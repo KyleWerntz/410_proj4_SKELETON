@@ -1,5 +1,8 @@
+#include <mutex>
 #include "../includes/logger.h"
 using namespace std;
+
+mutex mute;
 
 Logger::Logger(std::string filename) {
 	this->filename = filename;
@@ -10,6 +13,7 @@ Logger::~Logger() {
 
 //open close and clear the log file
 void Logger::clearlogfile() {
+	lock_guard<mutex> m(mute);
 	myFile.open(filename, std::fstream::trunc);
 
 	//close file
@@ -18,6 +22,7 @@ void Logger::clearlogfile() {
 }
 
 void Logger::log(std::string data) {
+	lock_guard<mutex> m(mute);
 	myFile.open(filename, std::fstream::app);
 	if (!myFile.is_open())
 		return;

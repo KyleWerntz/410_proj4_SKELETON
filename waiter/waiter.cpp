@@ -24,7 +24,8 @@ void Waiter::beWaiter() {
 	while (i == SUCCESS) {
 		ORDER anOrder;
 		i = getNext(anOrder);
-		order_in_Q.push(anOrder);
+		if (anOrder.number_donuts != UNINITIALIZED)
+			order_in_Q.push(anOrder);
 		cv_order_inQ.notify_all();
 	}
 	b_WaiterIsFinished = true;

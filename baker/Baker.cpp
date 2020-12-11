@@ -17,7 +17,7 @@ void Baker::bake_and_box(ORDER &anOrder) {
 	vector<Box> boxes;
 	Box b;
 	DONUT d;
-	while (donutsMade != anOrder.number_donuts)	{
+	while (donutsMade != anOrder.number_donuts)	{ //TODO fix in3
 		b.addDonut(d);
 		donutsMade+=1;
 		if (b.size() == DOZEN)	{
@@ -41,9 +41,8 @@ void Baker::beBaker() {
 			order_out_Vector.push_back(order_in_Q.front());
 			order_in_Q.pop();
 		}
-		if (order_in_Q.size() == 0 && b_WaiterIsFinished)
+		if (order_in_Q.size() == 0 && b_WaiterIsFinished)	{
 			break;
+		}
 	}
-
-
 }

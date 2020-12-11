@@ -86,7 +86,14 @@ void audit_results() {
 
 int main()
 {
-	//TODO your code here
+	thread t1(doWaiter, 10, "in3.txt");
+	thread t2(doBaker, 1);
+
+	t1.join();
+	t2.join();
+
+	this_thread::sleep_for(chrono::seconds(5));
+	audit_results();
 	return SUCCESS;
 }
 
