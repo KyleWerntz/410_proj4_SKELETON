@@ -86,7 +86,8 @@ void audit_results() {
 
 int main()
 {
-	thread t1(doWaiter, 10, "in3.txt");
+	cout << "starting" << endl;
+	thread t1(doWaiter, 10, "in1.txt");
 	thread t2(doBaker, 1);
 
 	t1.join();

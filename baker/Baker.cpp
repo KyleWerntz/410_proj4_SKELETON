@@ -22,8 +22,9 @@ void Baker::bake_and_box(ORDER &anOrder) {
 		donutsMade+=1;
 		if (b.size() == DOZEN)	{
 			boxes.push_back(b);
-			Box b;
+			b.clear();
 		}
+
 	}
 	if (b.size() > 0)
 		boxes.push_back(b);
